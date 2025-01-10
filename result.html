@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
     <style>
-        /* General body styles */
+        /* General body styles | Ogólne style ciala */
         body {
             font-family: Helvetica, sans-serif;
             font-size: 32px;
@@ -13,99 +13,98 @@
             text-align: center;
             margin: 0;
             padding: 20px;
-            transition: background-color 0.5s ease; /* Smooth background transition */
+            transition: background-color 0.5s ease; /* Smooth background transition | Płynne przejście tła */
         }
 
-        /* Styles for all images */
+        /* Styles for all images | Style dla wszystkich obrazów */
         img {
             width: 50%;
             max-width: 100%;
             margin: 20px 0;
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        /* Styles for the corner image */
+        /* Style dla obrazu w rogu */
         #corner-img {
             position: fixed;
             top: 10px;
             right: 10px;
             width: 80px;
             opacity: 0.8;
-            transition: transform 0.5s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Animation effects */
-            border-radius: 50%; /* Circular shape */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.53); /* Initial shadow */
+            transition: transform 0.5s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Efekty animacji */
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.53);
         }
 
-        /* Hover effect for corner image */
+        /* Hover effect for corner image | Efekt po najechaniu na obraz w rogu */
         #corner-img:hover {
-            transform: rotate(360deg); /* Rotation effect */
+            transform: rotate(360deg); /* Rotation effect | Efekt obracania */
             opacity: 1;
-            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.24); /* Glowing effect */
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.24); /* Glowing effect | Efekt poświaty */
         }
 
-        /* Heading styles */
+        /* Style nagłówka */
         h1 {
             margin-bottom: 20px;
             color: white;
-            text-transform: uppercase; /* Uppercase text */
+            text-transform: uppercase;
         }
 
-        /* Styles for the link button */
+        /* Styles for the link button | Style dla przycisku odnośnika */
         a {
-            display: inline-flex;  /* Flexbox layout for text and emoji */
-            align-items: center;  /* Center align text vertically */
+            display: inline-flex;  /* Układ flex dla tekstu i emoji */
+            align-items: center;  /* Center align text vertically | Wyrównanie tekstu w pionie */
             margin-top: 20px;
             font-size: 20px;
-            color: #494c4f;  /* Text color */
-            text-decoration: none;  /* No underline */
-            position: fixed;  /* Fixed position at the bottom left */
+            color: #494c4f;
+            text-decoration: none;  /* Brak podkreślenia */
+            position: fixed;  /* Fixed position at the bottom left | Pozycja stała w lewym dolnym rogu */
             left: 20px;
             bottom: 20px;
-            text-transform: uppercase; /* Uppercase text */
-            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
-            border-radius: 10px; /* Rounded corners */
-            padding: 10px 20px; /* Padding inside the link */
-            transition: text-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+            text-transform: uppercase; /* Uppercase text | Wielkie litery */
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background | Półprzezroczyste tło */
+            border-radius: 10px;
+            padding: 10px 20px; /* Padding inside the link | Wewnętrzny odstęp w odnośniku */
+            transition: text-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions | Płynne przejścia */
         }
 
-        /* Hover effect for the link button */
+        /* Hover effect for the link button | Efekt po najechaniu na przycisk odnośnika */
         a:hover {
-            text-shadow: 0 0 5px white, 0 0 10px white; /* Subtle text glow */
-            transform: scale(1.05); /* Slight zoom effect */
-            background-color: rgba(255, 255, 255, 0.5); /* Increased background opacity */
+            text-shadow: 0 0 5px white, 0 0 10px white; /* Subtle text glow | Subtelny blask tekstu */
+            transform: scale(1.05); /* Lekki efekt powiększenia */
+            background-color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Adding the emoji before the link text */
+        /* Adding the emoji before the link text | Dodanie emoji przed tekstem odnośnika */
         a::before {
-            content: '🔙';  /* Emoji content */
+            content: '🔙';
             font-size: 24px;
             margin-right: 10px;  /* Space between emoji and text */
         }
 
-        /* Emoji hover effect */
+        /* Emoji hover effect | Efekt po najechaniu na emoji */
         .emoji:hover {
-            text-shadow: 0 0 5px white, 0 0 10px white;  /* Subtle text glow */
-            transform: scale(1.2); /* Slight zoom effect for emoji */
-            transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+            text-shadow: 0 0 5px white, 0 0 10px white;
+            transform: scale(1.2);
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
         }
     </style>
-    
 </head>
 <body>
 <h1>Result</h1>
-<div id="result"></div> <!-- Result output -->
-<img id="main-img" alt="Element Image"> <!-- Image for the element -->
-<img id="corner-img" src="img/yinyang.png" alt="Corner Image"> <!-- Corner image with hover effect -->
-<a href="index.html"> Back to Main Page</a> <!-- Back to main page link -->
+<div id="result"></div>
+<img id="main-img" alt="Element Image">
+<img id="corner-img" src="img/yinyang.png" alt="Corner Image">
+<a href="index.html"> Back to Main Page</a>
 
 <script>
-    // Get parameters from the URL
+    // Get parameters from the URL | Pobranie parametrów z URL
     const urlParams = new URLSearchParams(window.location.search);
-    const phrase = urlParams.get('phrase');  // Phrase entered by the user
-    const element = urlParams.get('element');  // Element selected by the user
+    const phrase = urlParams.get('phrase');  // Phrase entered by the user | Fraza wprowadzona przez użytkownika
+    const element = urlParams.get('element');  // Element selected by the user | Element wybrany przez użytkownika
 
-    // Define element colors
+    // Define element colors | Definiowanie kolorów elementów
     const elementColors = {
         fire: '#8a3e2d',
         water: '#497192',
@@ -113,7 +112,7 @@
         air: '#72a3c9'
     };
 
-    // Define element emojis
+    // Define element emojis | Definiowanie emoji dla elementów
     const elementEmojis = {
         fire: '🔥',
         water: '💧',
@@ -121,7 +120,7 @@
         air: '☁️'
     };
 
-    // Define element images
+    // Define element images | Definiowanie obrazów dla elementów
     const elementImages = {
         fire: ['img/fire1.png', 'img/fire2.png', 'img/fire3.png'],
         water: ['img/water1.png', 'img/water2.png', 'img/water3.png'],
@@ -129,23 +128,23 @@
         air: ['img/air1.png', 'img/air2.png', 'img/air3.png']
     };
 
-    // Set background color based on the element
+    // Set background color based on the element | Ustawienie koloru tła na podstawie elementu
     document.body.style.backgroundColor = elementColors[element] || 'white';
 
-    // Display phrase and element in the result section
+    // Display phrase and element in the result section | Wyświetlenie frazy i elementu w sekcji wyniku
     document.getElementById('result').innerHTML = `
             <p><strong>phrase:</strong> ${phrase}</p>
             <p><strong>element:</strong> <span class="emoji">${elementEmojis[element]}</span></p>
         `;
 
-    // Set a random image for the selected element
+    // Set a random image for the selected element | Ustawienie losowego obrazu dla wybranego elementu
     const images = elementImages[element];
     if (images) {
         const randomImage = images[Math.floor(Math.random() * images.length)];
         document.getElementById('main-img').src = randomImage;
     }
 
-    // Set corner image rotation based on the length of the phrase
+    // Set corner image rotation based on the length of the phrase | Ustawienie rotacji obrazu w rogu na podstawie długości frazy
     const cornerImg = document.getElementById('corner-img');
     cornerImg.style.transform = `rotate(${phrase.length * 10}deg)`;
 </script>
