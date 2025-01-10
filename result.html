@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Helvetica, sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.5s ease; /* Smooth background transition */
+        }
+
+        /* Styles for all images */
+        img {
+            width: 50%;
+            max-width: 100%;
+            margin: 20px 0;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+        }
+
+        /* Styles for the corner image */
+        #corner-img {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            width: 80px;
+            opacity: 0.8;
+            transition: transform 0.5s ease, opacity 0.3s ease, box-shadow 0.3s ease; /* Animation effects */
+            border-radius: 50%; /* Circular shape */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.53); /* Initial shadow */
+        }
+
+        /* Hover effect for corner image */
+        #corner-img:hover {
+            transform: rotate(360deg); /* Rotation effect */
+            opacity: 1;
+            box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.24); /* Glowing effect */
+        }
+
+        /* Heading styles */
+        h1 {
+            margin-bottom: 20px;
+            color: white;
+            text-transform: uppercase; /* Uppercase text */
+        }
+
+        /* Styles for the link button */
+        a {
+            display: inline-flex;  /* Flexbox layout for text and emoji */
+            align-items: center;  /* Center align text vertically */
+            margin-top: 20px;
+            font-size: 20px;
+            color: #494c4f;  /* Text color */
+            text-decoration: none;  /* No underline */
+            position: fixed;  /* Fixed position at the bottom left */
+            left: 20px;
+            bottom: 20px;
+            text-transform: uppercase; /* Uppercase text */
+            background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px 20px; /* Padding inside the link */
+            transition: text-shadow 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Smooth transitions */
+        }
+
+        /* Hover effect for the link button */
+        a:hover {
+            text-shadow: 0 0 5px white, 0 0 10px white; /* Subtle text glow */
+            transform: scale(1.05); /* Slight zoom effect */
+            background-color: rgba(255, 255, 255, 0.5); /* Increased background opacity */
+        }
+
+        /* Adding the emoji before the link text */
+        a::before {
+            content: '🔙';  /* Emoji content */
+            font-size: 24px;
+            margin-right: 10px;  /* Space between emoji and text */
+        }
+
+        /* Emoji hover effect */
+        .emoji:hover {
+            text-shadow: 0 0 5px white, 0 0 10px white;  /* Subtle text glow */
+            transform: scale(1.2); /* Slight zoom effect for emoji */
+            transition: transform 0.3s ease, text-shadow 0.3s ease; /* Smooth transition */
+        }
+    </style>
+    
+</head>
+<body>
+<h1>Result</h1>
+<div id="result"></div> <!-- Result output -->
+<img id="main-img" alt="Element Image"> <!-- Image for the element -->
+<img id="corner-img" src="img/yinyang.png" alt="Corner Image"> <!-- Corner image with hover effect -->
+<a href="index.html"> Back to Main Page</a> <!-- Back to main page link -->
+
+<script>
+    // Get parameters from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const phrase = urlParams.get('phrase');  // Phrase entered by the user
+    const element = urlParams.get('element');  // Element selected by the user
+
+    // Define element colors
+    const elementColors = {
+        fire: '#8a3e2d',
+        water: '#497192',
+        earth: '#916347',
+        air: '#72a3c9'
+    };
+
+    // Define element emojis
+    const elementEmojis = {
+        fire: '🔥',
+        water: '💧',
+        earth: '🗿',
+        air: '☁️'
+    };
+
+    // Define element images
+    const elementImages = {
+        fire: ['img/fire1.png', 'img/fire2.png', 'img/fire3.png'],
+        water: ['img/water1.png', 'img/water2.png', 'img/water3.png'],
+        earth: ['img/earth1.png', 'img/earth2.png', 'img/earth3.png'],
+        air: ['img/air1.png', 'img/air2.png', 'img/air3.png']
+    };
+
+    // Set background color based on the element
+    document.body.style.backgroundColor = elementColors[element] || 'white';
+
+    // Display phrase and element in the result section
+    document.getElementById('result').innerHTML = `
+            <p><strong>phrase:</strong> ${phrase}</p>
+            <p><strong>element:</strong> <span class="emoji">${elementEmojis[element]}</span></p>
+        `;
+
+    // Set a random image for the selected element
+    const images = elementImages[element];
+    if (images) {
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        document.getElementById('main-img').src = randomImage;
+    }
+
+    // Set corner image rotation based on the length of the phrase
+    const cornerImg = document.getElementById('corner-img');
+    cornerImg.style.transform = `rotate(${phrase.length * 10}deg)`;
+</script>
+</body>
+</html>
