@@ -5,36 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elemental Selector</title>
     <style>
-        /* General body styles */
         body {
             font-family: Helvetica, sans-serif;
             font-size: 32px;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #eceff1, #cfd8dc); /* Background gradient */
+            background: linear-gradient(135deg, #eceff1, #cfd8dc);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh; /* Full height */
         }
 
-        /* Container styles */
         .container {
             text-align: center;
             background: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Box shadow for container */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
 
-        /* Heading styles */
         h1 {
             margin-bottom: 20px;
             color: #37474f;
-            text-transform: uppercase; /* Uppercase text */
+            text-transform: uppercase;
         }
 
-        /* Text input styles */
         input[type="text"] {
             font-size: 20px;
             padding: 12px;
@@ -42,20 +38,18 @@
             margin-bottom: 20px;
             border: 1px solid #b0bec5;
             border-radius: 8px;
-            outline: none; /* Remove outline on focus */
+            outline: none;
         }
 
-        /* Select box styles */
         select {
             font-size: 20px;
             padding: 12px;
             margin-bottom: 20px;
             border: 1px solid #b0bec5;
             border-radius: 8px;
-            outline: none; /* Remove outline on focus */
+            outline: none;
         }
 
-        /* Button styles */
         button {
             font-size: 20px;
             padding: 12px 24px;
@@ -64,13 +58,12 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        /* Button hover effect */
         button:hover {
             background-color: #30737c;
-            transform: scale(1.05); /* Slight zoom effect */
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -78,7 +71,7 @@
 <div class="container">
     <h1>Choose Your Element</h1>
     <form action="result.html" method="GET">
-        <input type="text" name="phrase" placeholder="Enter phrase here" required> <!-- Input for phrase -->
+        <input type="text" name="phrase" placeholder="Enter phrase here" required>
         <br>
         <select name="element" required> <!-- Dropdown for element selection -->
             <option value="fire">🔥 FIRE</option>
@@ -87,7 +80,7 @@
             <option value="air">☁ AIR</option>
         </select>
         <br>
-        <button type="submit">Submit</button> <!-- Submit button -->
+        <button type="submit">Submit</button>
     </form>
 </div>
 </body>
